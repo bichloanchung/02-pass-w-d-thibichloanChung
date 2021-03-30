@@ -63,5 +63,16 @@ public class DataAnalysisTest {
 				result.contains("The first name is smaller or equals in size to the last name and the participant is 30 or younger"));
 
 	}
+	
+	@Test
+	public void test6() {
+		DataAnalysis dataAnalysis = new DataAnalysis();
+		ArrayList<String> values = new ArrayList<String>();
+		values.addAll(Arrays.asList("Game", "Elina", "Yang", "F", "50", "Paris"));
+		String result = dataAnalysis.buildFinalString(values);
+		assertTrue("The result should contain 'The first name is greater or equals in size to the last name and the participant older than 30' ",
+				result.contains("The first name is greater or equals in size to the last name and the participant older than 30"));
+
+	}
 
 }
