@@ -30,7 +30,23 @@ public class ConversorTest {
 		assertEquals(conversor.getGenderConverterArray().get(0), "man!");
 		assertEquals(conversor.getGenderConverterArray().get(1), "woman!");
 		assertEquals(conversor.getGenderConverterArray().get(2), "person!");
-		
+	}
+	
+	@Test
+	public void testConversor_City() {
+		Conversor conversor = new Conversor();
+		conversor.setCityConverterArrayValues();
+		assertEquals(conversor.getCityConverterArray().get(0), " A, ");
+		assertEquals(conversor.getCityConverterArray().get(1), " B, ");
+		assertEquals(conversor.getCityConverterArray().get(2), " C, ");
+		assertEquals(conversor.getCityConverterArray().get(3), " D, ");
+		assertEquals(conversor.getCityConverterArray().get(4), " E, ");
+		assertEquals(conversor.getCityConverterArray().get(5), " F, ");
+		assertEquals(conversor.getCityConverterArray().get(6), " G, ");
+		assertEquals(conversor.getCityConverterArray().get(7), " H, ");
+		assertEquals(conversor.getCityConverterArray().get(8), " I, ");
+		assertEquals(conversor.getCityConverterArray().get(9), " J, ");
+		assertEquals(conversor.getCityConverterArray().get(10), " a letter that comes after J, ");
 	}
 
 }

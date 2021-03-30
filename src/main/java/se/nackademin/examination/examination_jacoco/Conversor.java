@@ -41,7 +41,7 @@ public class Conversor {
 		this.cityConverterArray.add(" G, ");
 		this.cityConverterArray.add(" H, ");
 		this.cityConverterArray.add(" I, ");
-		this.cityConverterArray.add(" J,");
+		this.cityConverterArray.add(" J, ");
 		this.cityConverterArray.add(" a letter that comes after J, ");
 		
 	}
