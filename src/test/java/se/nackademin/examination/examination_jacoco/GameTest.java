@@ -26,5 +26,77 @@ public class GameTest {
 		int i = game.calculateOutPutBasedOnNames("Jakob", "Berny");
 		assertEquals("The result should be 2", i, 2);
 	}
+	
+	@Test
+	public void testMethod2() {
+		Game game = new Game();
+		int i = game.calculateOutPutBasedOnGender('M');
+		assertEquals("The result should be 0", i, 0);
+	}
+	
+	@Test
+	public void testMethod2_2() {
+		Game game = new Game();
+		int i = game.calculateOutPutBasedOnGender('F');
+		assertEquals("The result should be 1", i, 1);
+	}
+	
+	@Test
+	public void testMethod2_3() {
+		Game game = new Game();
+		int i = game.calculateOutPutBasedOnGender('G');
+		assertEquals("The result should be 2", i, 2);
+	}
+	
+	@Test
+	public void testMethod3() {
+		Game game = new Game();
+		int i = game.calculateOutPutBasedOnAge(30);
+		assertEquals("The result should be 1", i, 1);
+	}
+	
+	@Test
+	public void testMethod3_2() {
+		Game game = new Game();
+		int i = game.calculateOutPutBasedOnAge(20);
+		assertEquals("The result should be 0", i, 0);
+	}
+	
+	@Test
+	public void testMethod4() {
+		Game game = new Game();
+		int i0 = game.calculateOutPutBasedOnHomeCity("a");
+		assertEquals("The result should be 0", i0, 0);
+		
+		int i1 = game.calculateOutPutBasedOnHomeCity("b");
+		assertEquals("The result should be 1", i1, 1);
+		
+		int i2 = game.calculateOutPutBasedOnHomeCity("c");
+		assertEquals("The result should be 2", i2, 2);
+		
+		int i3 = game.calculateOutPutBasedOnHomeCity("d");
+		assertEquals("The result should be 3", i3, 3);
+		
+		int i4 = game.calculateOutPutBasedOnHomeCity("e");
+		assertEquals("The result should be 4", i4, 4);
+		
+		int i5 = game.calculateOutPutBasedOnHomeCity("f");
+		assertEquals("The result should be 5", i5, 5);
+		
+		int i6 = game.calculateOutPutBasedOnHomeCity("g");
+		assertEquals("The result should be 6", i6, 6);
+		
+		int i7 = game.calculateOutPutBasedOnHomeCity("h");
+		assertEquals("The result should be 7", i7, 7);
+		
+		int i8 = game.calculateOutPutBasedOnHomeCity("i");
+		assertEquals("The result should be 8", i8, 8);
+		
+		int i9 = game.calculateOutPutBasedOnHomeCity("j");
+		assertEquals("The result should be 9", i9, 9);
+		
+		int i = game.calculateOutPutBasedOnHomeCity("m");
+		assertEquals("The result should be 10", i, 10);
+	}
 
 }
