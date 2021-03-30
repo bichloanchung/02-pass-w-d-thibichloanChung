@@ -19,5 +19,15 @@ public class DataAnalysisTest {
 				result.contains("The name of the homecity is big and the participant is 30 or older"));
 
 	}
+	@Test
+	public void test2() {
+		DataAnalysis dataAnalysis = new DataAnalysis();
+		ArrayList<String> values = new ArrayList<String>();
+		values.addAll(Arrays.asList("Game", "Thi", "Chung", "F", "20", "Saigon"));
+		String result = dataAnalysis.buildFinalString(values);
+		assertTrue("The result should contain 'The name of the homecity is big and the participant is younger than 30' ",
+				result.contains("The name of the homecity is big and the participant is younger than 30"));
+
+	}
 
 }
