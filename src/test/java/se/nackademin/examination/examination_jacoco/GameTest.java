@@ -98,5 +98,6 @@ public class GameTest {
 		int i = game.calculateOutPutBasedOnHomeCity("m");
 		assertEquals("The result should be 10", i, 10);
 	}
+	
 
 }
