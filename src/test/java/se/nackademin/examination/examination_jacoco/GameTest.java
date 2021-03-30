@@ -2,6 +2,9 @@ package se.nackademin.examination.examination_jacoco;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import org.junit.Test;
 
 public class GameTest {
@@ -99,5 +102,14 @@ public class GameTest {
 		assertEquals("The result should be 10", i, 10);
 	}
 	
+	@Test
+	public void testMethod5() {
+		Game game = new Game();
+		DataAnalysis dataAnalysis = new DataAnalysis();
+		ArrayList<String> values = new ArrayList<String>();
+		values.addAll(Arrays.asList("Game", "Thi", "Chung", "F", "20", "Saigon"));
+		
+		assertEquals("Gender Character of this person is F", game.getGenderFromInputValues(values), 'F');
+	}
 
 }
