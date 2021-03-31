@@ -105,11 +105,45 @@ public class GameTest {
 	@Test
 	public void testMethod5() {
 		Game game = new Game();
-		DataAnalysis dataAnalysis = new DataAnalysis();
 		ArrayList<String> values = new ArrayList<String>();
 		values.addAll(Arrays.asList("Game", "Thi", "Chung", "F", "20", "Saigon"));
 		
 		assertEquals("Gender Character of this person is F", game.getGenderFromInputValues(values), 'F');
+	}
+	
+	@Test
+	public void testMethod6() {
+		Game game = new Game();
+		ArrayList<String> values = new ArrayList<String>();
+		values.addAll(Arrays.asList("Game", "Thi", "Chung", "F", "20", "Saigon"));
+		
+		assertEquals("The result should be 20", game.getAgeFromInputValues(values), 20);
+	}
+	
+	@Test
+	public void testMethod7() {
+		// Initialize conversor
+		Conversor conversor = new Conversor();
+		ResultFromInputs resultFromInputs = new ResultFromInputs();
+		int age = 1;
+		resultFromInputs.setResultForAge(age);
+		int gender = 1;
+		resultFromInputs.setResultForGender(gender);
+
+		Game game = new Game();
+		game.buildFinalString("A", "B", resultFromInputs, conversor);
+			
+		String tgender = conversor.getGenderConverterArray().get(gender);
+		String tage = conversor.getAgeConverterArray().get(age);
+		assertEquals(tgender,"woman!");
+		assertEquals(tage,"You are experienced and talented! Things will come your way soon enough!");
+		
+		//System.out.println(conversor.getAgeConverterArray().get(age));
+		//System.out.println(conversor.getNameConverterArray().get(name)+ " and combining that with the first letter of your homecity, i.e. "+conversor.getCityConverterArray().get(homecity) );
+		//System.out.println("it seems that you are a dedicated student and will be a great Software Tester Engineer!");
+
+		
+		
 	}
 
 }
