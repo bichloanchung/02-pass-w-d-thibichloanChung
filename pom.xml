@@ -5,9 +5,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>se.nackademin.examination</groupId>
-	<artifactId>02-pass-w-d-thibichloanChung</artifactId>
+	<artifactId>examination-jacoco</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+	
 	<!-- These are my properties for the project -->
 	<properties>
 		<junit.version>4.12</junit.version>
@@ -84,4 +85,5 @@
 
 		</plugins>
 	</build>
+		
 </project>
