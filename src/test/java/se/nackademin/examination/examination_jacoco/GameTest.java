@@ -1,6 +1,7 @@
 package se.nackademin.examination.examination_jacoco;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,6 +10,7 @@ import org.junit.Test;
 
 public class GameTest {
 
+	// test calculateOutPutBaseOnNames()
 	@Test
 	public void testMethod1() {
 		Game game = new Game();
@@ -30,6 +32,7 @@ public class GameTest {
 		assertEquals("The result should be 2", i, 2);
 	}
 	
+	// test calculateOutPutBaseOnGender()
 	@Test
 	public void testMethod2() {
 		Game game = new Game();
@@ -51,6 +54,7 @@ public class GameTest {
 		assertEquals("The result should be 2", i, 2);
 	}
 	
+	// test calculateOutPutBasedOnAge()
 	@Test
 	public void testMethod3() {
 		Game game = new Game();
@@ -65,6 +69,7 @@ public class GameTest {
 		assertEquals("The result should be 0", i, 0);
 	}
 	
+	// test calculateOutPutBaseOnHomeCity()
 	@Test
 	public void testMethod4() {
 		Game game = new Game();
@@ -102,6 +107,7 @@ public class GameTest {
 		assertEquals("The result should be 10", i, 10);
 	}
 	
+	// test getGenderFromInputValues()
 	@Test
 	public void testMethod5() {
 		Game game = new Game();
@@ -111,6 +117,7 @@ public class GameTest {
 		assertEquals("Gender Character of this person is F", game.getGenderFromInputValues(values), 'F');
 	}
 	
+	// test getAgeFromInputValues()
 	@Test
 	public void testMethod6() {
 		Game game = new Game();
@@ -120,30 +127,83 @@ public class GameTest {
 		assertEquals("The result should be 20", game.getAgeFromInputValues(values), 20);
 	}
 	
+	// test buildFinalString()
 	@Test
 	public void testMethod7() {
-		// Initialize conversor
+		
 		Conversor conversor = new Conversor();
 		ResultFromInputs resultFromInputs = new ResultFromInputs();
-		int age = 1;
+		int age = 0;
 		resultFromInputs.setResultForAge(age);
-		int gender = 1;
+		int gender = 2;
 		resultFromInputs.setResultForGender(gender);
-
+		int name = 2;
+		resultFromInputs.setResultForNameLenght(name);
+		int homecity = 9;
+		resultFromInputs.setResultForHomeCity(homecity);
+		
 		Game game = new Game();
 		game.buildFinalString("A", "B", resultFromInputs, conversor);
 			
 		String tgender = conversor.getGenderConverterArray().get(gender);
+		assertEquals(tgender, "person!");
+		
 		String tage = conversor.getAgeConverterArray().get(age);
-		assertEquals(tgender,"woman!");
-		assertEquals(tage,"You are experienced and talented! Things will come your way soon enough!");
+		assertEquals(tage, "You are young and talented! Things will come your way soon enough! ");
 		
-		//System.out.println(conversor.getAgeConverterArray().get(age));
-		//System.out.println(conversor.getNameConverterArray().get(name)+ " and combining that with the first letter of your homecity, i.e. "+conversor.getCityConverterArray().get(homecity) );
-		//System.out.println("it seems that you are a dedicated student and will be a great Software Tester Engineer!");
-
+		String tname = conversor.getNameConverterArray().get(name);
+		assertEquals(tname, "The lengths of your first name is your last name are the same");
 		
+		String thomecity = conversor.getCityConverterArray().get(homecity);
+		assertEquals(thomecity, " J, ");
 		
 	}
+	
+	// test runGame()
+		@Test
+		public void testMethod8() {
+			Game game = new Game();
+			
+			String gameName = "Game";
+			String firstName = "Elina";
+			String lastName = "Svensson";
+			char gender = 'F';
+			int age = 30;
+			String homeCity = "Stockholm";
+			
+			game.runGame(gameName, firstName, lastName, gender, age, homeCity);
+			
+			int nameE = game.calculateOutPutBasedOnNames(firstName, lastName);
+			assertEquals("CalculateOutPutBaseOnNames should be 0", nameE, 0);
+			
+			int genderE = game.calculateOutPutBasedOnGender(gender);
+			assertEquals("CalculateOutPutBasedOnGender should be 1", genderE, 1);
+			
+			int ageE = game.calculateOutPutBasedOnAge(age);
+			assertEquals("CalculataOutPutBasedOnAge should be 1", ageE, 1);
+			
+			int cityE = game.calculateOutPutBasedOnHomeCity(homeCity);
+			assertEquals("CalculateOutPutBasedOnHomeCity should be 10", cityE, 10);
+			
+		}
+		
+		// test run()
+		@Test
+		public void testMethod9() {
+			Game game = new Game();
+			//DataAnalysis dataAnalysis = new DataAnalysis();
+			ArrayList<String> values = new ArrayList<String>();
+			values.addAll(Arrays.asList("Game", "Thi", "Chung", "P", "25", "France"));
+			
+			game.run(values);
+	
+			assertEquals(values.get(0), "Game");
+			assertEquals(values.get(1), "Thi");
+			assertEquals(values.get(2), "Chung");
+			assertEquals(game.getGenderFromInputValues(values), 'P');
+			assertEquals(game.getAgeFromInputValues(values), 25);
+			assertEquals(values.get(5), "France");
+
+		}
 
 }
