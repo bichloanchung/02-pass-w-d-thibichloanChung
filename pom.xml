@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>se.nackademin.examination</groupId>
-	<artifactId>examination-jacoco</artifactId>
+	<artifactId>02-pass-w-d-thibichloanChung</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<dependencies>
